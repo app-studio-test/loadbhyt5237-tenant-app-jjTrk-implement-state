@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: dotnet-deploy
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: loadbhyt5237-tenant-component
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: loadbhyt5237-tenant-component
+    app.kubernetes.io/part-of: loadbhyt5237-tenant-app
+  name: loadbhyt5237-tenant-component
+  namespace: loadbhyt5237-tenant
+spec:
+  ports:
+  - name: http-8081
+    port: 8081
+    protocol: TCP
+    targetPort: 8081
+  selector:
+    app: devfile-dotnet-deploy
+    app.kubernetes.io/instance: loadbhyt5237-tenant-component
+  type: LoadBalancer
+status:
+  loadBalancer: {}
